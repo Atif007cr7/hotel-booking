@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               child: CircleAvatar(
                 // backgroundColor: Colors.red,
                 radius: 20,
-                child: Image.asset('assets/guestside/homepage/navigation.png'),
+                child: Image.asset('assets/guestside/homepage/planet.png'),
               ),
             ),
           ],
