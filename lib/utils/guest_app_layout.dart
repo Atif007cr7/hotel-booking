@@ -61,6 +61,7 @@ class _GuestAppLayoutState extends State<GuestAppLayout> {
         child: SizedBox(
           height: 55,
           child: BottomNavigationBar(
+            // backgroundColor: Colors.red.withOpacity(.1),
             selectedItemColor: Colors.red,
             showUnselectedLabels: false,
             showSelectedLabels: true,

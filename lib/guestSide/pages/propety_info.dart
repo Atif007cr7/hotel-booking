@@ -24,7 +24,7 @@ class _PropertyInfoState extends State<PropertyInfo> {
         slivers: [
           SliverAppBar(
             automaticallyImplyLeading: false,
-            expandedHeight: 300,
+            expandedHeight: 250,
             // stretch: true,
             scrolledUnderElevation: 100,
             flexibleSpace: FlexibleSpaceBar(
@@ -152,10 +152,67 @@ class _PropertyInfoState extends State<PropertyInfo> {
                 children: [
                   Text(item.propetyDescriptiom,
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  Text(item.description),
-                  Text('Price: ${item.prise}'),
-                  Text('Rating: ${item.rating}'),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(item.location,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
+                  Text('6 guest . 2 bedrooms . 2beds . 2 bathrooms',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                        size: 16,
+                      ),
+                      Text('${item.rating} review')
+                    ],
+                  ),
+                  Divider(
+                    thickness: .2,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        // backgroundColor: Colors.red,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/guestside/homepage/host.jpg',
+                            fit: BoxFit.fitHeight,
+                            height: 200,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Hosted by Atif Ansari',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            '1 years hosting',
+                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  Divider(
+                    thickness: .2,
+                  ),
                 ],
               ),
             ),
