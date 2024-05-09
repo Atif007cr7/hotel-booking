@@ -61,8 +61,8 @@ class _PropertyInfoState extends State<PropertyInfo> {
                     bottom: 10,
                     right: 10,
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 10),
                       decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(20)),
@@ -102,12 +102,12 @@ class _PropertyInfoState extends State<PropertyInfo> {
                       top: 30,
                       right: 60,
                       child: Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 5),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(10)),
-                          child: Icon(
+                          child: const Icon(
                             Icons.share,
                             size: 20,
                             color: Colors.black,
@@ -116,12 +116,12 @@ class _PropertyInfoState extends State<PropertyInfo> {
                       top: 30,
                       right: 12,
                       child: Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 5),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(10)),
-                          child: Icon(
+                          child: const Icon(
                             Icons.favorite,
                             size: 20,
                             color: Colors.red,
@@ -130,12 +130,12 @@ class _PropertyInfoState extends State<PropertyInfo> {
                       top: 30,
                       left: 12,
                       child: Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 5),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(10)),
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back,
                             size: 20,
                             color: Colors.grey,
@@ -151,23 +151,23 @@ class _PropertyInfoState extends State<PropertyInfo> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(item.propetyDescriptiom,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-                  SizedBox(
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w500)),
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(item.location,
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                  Text('6 guest . 2 bedrooms . 2beds . 2 bathrooms',
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.w400)),
+                  const Text('6 guest . 2 bedrooms . 2beds . 2 bathrooms',
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Colors.amber,
                         size: 16,
@@ -175,8 +175,9 @@ class _PropertyInfoState extends State<PropertyInfo> {
                       Text('${item.rating} review')
                     ],
                   ),
-                  Divider(
+                  const Divider(
                     thickness: .2,
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -192,10 +193,10 @@ class _PropertyInfoState extends State<PropertyInfo> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      Column(
+                      const Column(
                         children: [
                           Text(
                             'Hosted by Atif Ansari',
@@ -210,8 +211,9 @@ class _PropertyInfoState extends State<PropertyInfo> {
                       )
                     ],
                   ),
-                  Divider(
+                  const Divider(
                     thickness: .2,
+                    height: 30,
                   ),
                 ],
               ),

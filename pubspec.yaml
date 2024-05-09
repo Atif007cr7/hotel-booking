@@ -65,6 +65,7 @@ flutter:
     - assets/guestside/hotelimage/
     - assets/guestside/homepage/tabicons/
     - assets/wishlist/images/
+    - assets/guestside/profilepage/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
