@@ -35,7 +35,7 @@ class _HomeTab1State extends State<HomeTab1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PropertyInfo(),
+                        builder: (context) => PropertyInfo(item: item),
                       ),
                     );
                   },
@@ -103,7 +103,7 @@ class _HomeTab1State extends State<HomeTab1> {
                               }).toList(),
                             ),
                           ),
-                          Positioned(
+                          const Positioned(
                               top: 10,
                               left: 10,
                               child: Icon(
@@ -113,7 +113,7 @@ class _HomeTab1State extends State<HomeTab1> {
                               ))
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Padding(
@@ -123,15 +123,16 @@ class _HomeTab1State extends State<HomeTab1> {
                             Expanded(
                               child: Text(
                                 item.location,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w400),
                               ),
                             ),
-                            Icon(Icons.star, size: 18, color: Colors.orange),
+                            const Icon(Icons.star,
+                                size: 18, color: Colors.orange),
                             Text(item.rating,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w400)),
                           ],
                         ),
@@ -140,7 +141,7 @@ class _HomeTab1State extends State<HomeTab1> {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           item.description,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
                               fontWeight: FontWeight.w400),
@@ -153,10 +154,10 @@ class _HomeTab1State extends State<HomeTab1> {
                           children: [
                             Text(
                               '₹${item.prise}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w600),
                             ),
-                            Text(
+                            const Text(
                               ' per night',
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),

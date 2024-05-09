@@ -47,16 +47,16 @@ class _GuestAppLayoutState extends State<GuestAppLayout> {
       body: PageView(
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        children: [
-          const HomePage(),
-          const WishListPage(),
-          const BookingPage(),
-          const ChatScreen(),
-          const ProfilePage(),
+        children: const [
+          HomePage(),
+          WishListPage(),
+          BookingPage(),
+          ChatScreen(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(25), topRight: Radius.circular(25)),
         child: SizedBox(
           height: 55,
@@ -68,7 +68,7 @@ class _GuestAppLayoutState extends State<GuestAppLayout> {
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
             selectedLabelStyle:
-                TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             onTap: _onBottomNavBarTap,
             items: [
               BottomNavigationBarItem(
