@@ -129,8 +129,7 @@ class _HomeTab1State extends State<HomeTab1> {
                                     fontWeight: FontWeight.w400),
                               ),
                             ),
-                            const Icon(Icons.star,
-                                size: 18, color: Colors.orange),
+                            Icon(Icons.star, size: 18, color: Colors.orange),
                             Text(item.rating,
                                 style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w400)),

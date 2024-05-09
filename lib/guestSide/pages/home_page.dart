@@ -46,100 +46,13 @@ class _HomePageState extends State<HomePage> {
             },
             tabs: [
               Tab(
-                child: _customTabLabel(
-                    image: 'assets/guestside/homepage/tabicons/menu.png',
-                    titile: 'Featured',
-                    index: 0),
+                text: 'Featured',
               ),
+              Tab(text: 'Expensive'),
+              Tab(text: 'Budget'),
               Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/villa.png',
-                      titile: 'Villa',
-                      index: 1),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/barn.png',
-                      titile: 'Cabins',
-                      index: 2),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/beach.png',
-                      titile: 'Sea side',
-                      index: 3),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/tower.png',
-                      titile: 'Historical',
-                      index: 4),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/review.png',
-                      titile: 'Hotels',
-                      index: 5),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/barn.png',
-                      titile: 'Farms',
-                      index: 6),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/cabin.png',
-                      titile: 'Cabins',
-                      index: 7),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image:
-                          'assets/guestside/homepage/tabicons/tree-house.png',
-                      titile: 'Tree House',
-                      index: 8),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/island.png',
-                      titile: 'Tropical',
-                      index: 9),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/resort.png',
-                      titile: 'island',
-                      index: 10),
-                ),
-              ),
-              Tab(
-                child: Tab(
-                  child: _customTabLabel(
-                      image: 'assets/guestside/homepage/tabicons/bedroom.png',
-                      titile: '1&2Bhk',
-                      index: 11),
-                ),
-              ),
+                text: 'Party',
+              )
             ],
           ),
           actions: [
@@ -163,26 +76,10 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       width: 10,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Where to..?',
-                          // textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Anywhere . Anyweek . Add guests',
-                          // textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 11,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
+                    const Text(
+                      'Search your place and hotel',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ],
                 ),
