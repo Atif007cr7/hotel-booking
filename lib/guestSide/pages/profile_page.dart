@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
           _legalDocuments(),
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               _menuListTile(
@@ -66,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
     IconData? Icons,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           color: Colors.grey.withOpacity(.2),
           borderRadius: BorderRadius.circular(20)),
@@ -77,12 +77,12 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         title: Text(
           title ?? '',
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.w500),
         ),
         subtitle: Text(
           subtitle ?? '',
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 12, color: Colors.black, fontWeight: FontWeight.w300),
         ),
         // trailing: Icon(
