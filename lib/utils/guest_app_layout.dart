@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/guestSide/pages/booking_page.dart';
 import 'package:hotel_booking/guestSide/pages/chat_screen.dart';
+import 'package:hotel_booking/guestSide/pages/homeScreen/profile_page1.dart';
 import 'package:hotel_booking/guestSide/pages/home_page.dart';
 import 'package:hotel_booking/guestSide/pages/profile_page.dart';
 import 'package:hotel_booking/guestSide/pages/wishlist_page.dart';
@@ -52,7 +53,7 @@ class _GuestAppLayoutState extends State<GuestAppLayout> {
           WishListPage(),
           BookingPage(),
           ChatScreen(),
-          ProfilePage(),
+          Profilepage1(),
         ],
       ),
       bottomNavigationBar: ClipRRect(
