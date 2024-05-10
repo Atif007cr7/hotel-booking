@@ -135,10 +135,15 @@ class _PropertyInfoState extends State<PropertyInfo> {
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(10)),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            size: 20,
-                            color: Colors.grey,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(
+                              Icons.arrow_back,
+                              size: 20,
+                              color: Colors.grey,
+                            ),
                           ))),
                 ],
               ),

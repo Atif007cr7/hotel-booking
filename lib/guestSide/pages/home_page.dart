@@ -1,140 +1,137 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hotel_booking/guestSide/pages/homeScreen/home_tab1.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  late int? _selectedTabIndex = 0;
+  int _selectedTabIndex = 0; // Initialize to zero for the first tab
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 12, // Number of tabs
+      length: 11, // Number of tabs
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 65,
           title: const Text('Home Page'),
           bottom: TabBar(
+            tabAlignment: TabAlignment.start,
             splashFactory: NoSplash.splashFactory,
             overlayColor: MaterialStateProperty.all(Colors.transparent),
-            // indicatorSize: TabBarIndicatorSize.tab,
-            labelColor: Colors.red.withOpacity(.5),
+            labelColor: Colors.red.withOpacity(0.5),
             unselectedLabelColor: Colors.grey,
-            dividerColor: Colors.transparent,
             isScrollable: true,
-            tabAlignment: TabAlignment.start,
-            labelStyle: const TextStyle(
-                color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w500),
-            indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(
-                color:
-                    Colors.red.withOpacity(.5), // Color of the horizontal line
-                width: 2.0, // Thickness of the horizontal line
-              ),
-            ),
             onTap: (index) {
               setState(() {
-                _selectedTabIndex = index; // Update selected tab
+                _selectedTabIndex = index; // Correctly update the selected tab
               });
             },
-            tabs: [
-              Tab(
-                text: 'Featured',
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(
+                color: Colors.red.withOpacity(0.5),
+                width: 2.0,
               ),
-              Tab(text: 'Expensive'),
-              Tab(text: 'Budget'),
-              Tab(
-                text: 'Party',
-              )
-            ],
+            ),
+            tabs: _buildTabs(), // Custom method to build tab items
           ),
           actions: [
-            Expanded(
-              child: Container(
-                height: 60,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.withOpacity(.3)),
-                    borderRadius: BorderRadius.circular(20)),
-                child: const Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.search_rounded,
-                      size: 25,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    const Text(
-                      'Search your place and hotel',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: CircleAvatar(
-                // backgroundColor: Colors.red,
-                radius: 20,
-                child: Image.asset('assets/guestside/homepage/planet.png'),
-              ),
-            ),
+            _buildSearchBox(),
+            _buildAvatar(),
           ],
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             HomeTab1(), // Tab 1 content
-            Center(child: Text('Content for Tab 2')), // Tab 2 content
-            Center(child: Text('Content for Tab 3')), // Tab 3 content
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
-            Center(child: Text('Content for Tab 4')),
+            for (var i = 1; i < 11; i++)
+              Center(child: Text('Content for Tab ${i + 1}')),
           ],
         ),
       ),
     );
   }
 
-  Column _customTabLabel({
-    String? image,
-    String? titile,
-    int? index,
-  }) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(
-          image ?? '',
-          height: 20,
-          color: _selectedTabIndex == index
-              ? Colors.red.withOpacity(.5) // Selected tab color
-              : Colors.grey,
+  List<Tab> _buildTabs() {
+    var tabData = [
+      {'image': 'menu.png', 'title': 'Featured'},
+      {'image': 'barn.png', 'title': 'Barns'},
+      {'image': 'beach.png', 'title': 'Beach'},
+      {'image': 'bedroom.png', 'title': '1&2Bhk'},
+      {'image': 'cabin.png', 'title': 'Cabin'},
+      {'image': 'island.png', 'title': 'Sea side'},
+      {'image': 'resort.png', 'title': 'Resort'},
+      {'image': 'review.png', 'title': 'Hotel'},
+      {'image': 'tower.png', 'title': 'Historical'},
+      {'image': 'tree-house.png', 'title': 'Tree house'},
+      {'image': 'villa.png', 'title': 'Villa'},
+    ];
+
+    return tabData.map((tab) {
+      var image = 'assets/guestside/homepage/tabicons/${tab['image']}';
+      var title = tab['title'];
+
+      return Tab(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              image,
+              height: 20,
+              color: _selectedTabIndex == tabData.indexOf(tab)
+                  ? Colors.red.withOpacity(0.5) // Selected tab color
+                  : Colors.grey,
+            ),
+            SizedBox(height: 2),
+            Text(
+              title ?? '',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 2,
+      );
+    }).toList();
+  }
+
+  Widget _buildSearchBox() {
+    return Expanded(
+      child: Container(
+        height: 60,
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey.withOpacity(0.3)),
+          borderRadius: BorderRadius.circular(20),
         ),
-        Text(titile ?? '')
-      ],
+        child: Row(
+          children: [
+            Icon(
+              Icons.search_rounded,
+              size: 25,
+              color: Colors.black,
+            ),
+            SizedBox(width: 10),
+            const Text(
+              'Search your place and hotel',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAvatar() {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: CircleAvatar(
+        radius: 20,
+        child: Image.asset('assets/guestside/homepage/planet.png'),
+      ),
     );
   }
 }
