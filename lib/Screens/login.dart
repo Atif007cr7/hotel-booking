@@ -44,19 +44,20 @@ class _MyLoginState extends State<MyLogin> {
                           TextField(
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                hintText: "Email",
-                                prefixIcon: const Icon(
-                                  Icons.email,
-                                  color: Colors.blue,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
+                              fillColor: Colors.grey.shade100,
+                              filled: true,
+                              hintText: "Email",
+                              prefixIcon: const Icon(
+                                Icons.email,
+                                color: Colors.blue,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           TextField(
                             style: TextStyle(),
