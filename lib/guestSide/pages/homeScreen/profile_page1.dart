@@ -24,6 +24,24 @@ class _Profilepage1State extends State<Profilepage1> {
             _referListTile(),
             _supportListTile(),
             _legaldocumentsListTile(),
+            Padding(
+              padding: EdgeInsets.only(left: 30, top: 30),
+              child: Text(
+                'Log out',
+                style: TextStyle(
+                    decoration: TextDecoration.underline, fontSize: 14),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 30, top: 30),
+              child: Text(
+                'VERSION 24.16.4(203840)',
+                style: TextStyle(
+                    // decoration: TextDecoration.underline,
+                    fontSize: 10,
+                    color: Colors.grey),
+              ),
+            ),
             SizedBox(
               height: 100,
             ),
@@ -32,7 +50,8 @@ class _Profilepage1State extends State<Profilepage1> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: SizedBox(
-          width: 250,
+          width: 210,
+          height: 45,
           child: FloatingActionButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
@@ -53,7 +72,7 @@ class _Profilepage1State extends State<Profilepage1> {
                   Text(
                     'Switch to hosting',
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: Colors.white),
                   )

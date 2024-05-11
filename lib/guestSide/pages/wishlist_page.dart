@@ -1,109 +1,134 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class WishListPage extends StatefulWidget {
-  const WishListPage({super.key});
+  const WishListPage({Key? key}) : super(key: key);
 
   @override
   State<WishListPage> createState() => _WishListPageState();
 }
 
 class _WishListPageState extends State<WishListPage> {
+  bool _isEditing = false; // Track whether editing mode is active
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/wishlist/images/empty_box_searching.jpg'),
-          const SizedBox(height: 10),
-          const Text(
-            'My Wishlist is empty!',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            "Tap heart button to start saving\nyour favorite items.",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-            child: Text(
-              "Explore",
-              style: TextStyle(color: Colors.white),
+      appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _isEditing = !_isEditing; // Toggle editing mode
+                });
+              },
+              child: Text(
+                _isEditing ? 'Done' : 'Edit',
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
         ],
       ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'WishLists',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  childAspectRatio: 2 / 2.5, // Aspect ratio of 2:1
+                ),
+                itemCount: 10, // Number of wish list items
+                itemBuilder: (context, index) {
+                  return _buildWishListItem(index);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
-}
 
-Widget wishlistFull({
-  required String title,
-  required String subtitle,
-  required String image,
-  required String text1,
-  required String text2,
-}) {
-  return Container(
-    margin: EdgeInsets.all(16.0),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10.0),
-      color: Colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 2,
-          blurRadius: 5,
-          offset: Offset(0, 3), // changes position of shadow
-        ),
-      ],
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget _buildWishListItem(int index) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.network(
-          image,
-          fit: BoxFit.cover,
+        Stack(
+          children: [
+            Material(
+              shadowColor: Colors.black,
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                margin: EdgeInsets.all(2),
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/guestside/hotelimage/img${index + 1}.jpg', // Assuming your images are named as img1.jpg, img2.jpg, etc.
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            Visibility(
+              visible: _isEditing, // Show delete icon only in editing mode
+              child: Positioned(
+                top: 10,
+                left: 10,
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.close,
+                    size: 16,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                ),
-              ),
-              SizedBox(height: 8.0),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.grey,
-                ),
-              ),
-              SizedBox(height: 8.0),
-              Text(
-                text1,
-                style: TextStyle(fontSize: 16.0),
-              ),
-              Text(
-                text2,
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ],
+        SizedBox(height: 10),
+        Text(
+          'Amazing views 2024', // Assuming same title for all items, you can replace with dynamic data
+          textAlign: TextAlign.start,
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        ),
+        Text(
+          '1 saved', // Assuming same saved count for all items, you can replace with dynamic data
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w400,
+            color: Colors.grey,
           ),
         ),
       ],
-    ),
-  );
+    );
+  }
 }
