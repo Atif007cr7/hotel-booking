@@ -14,25 +14,25 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.only(right: 20),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(.2),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Icon(Icons.search),
+                  child: const Icon(Icons.search),
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(.2),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Icon(Icons.tune),
+                  child: const Icon(Icons.tune),
                 ),
               ],
             ),
@@ -40,11 +40,11 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Messages',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
@@ -73,8 +73,8 @@ class _ChatScreenState extends State<ChatScreen> {
               child: Image.asset('assets/guestside/profilepage/avtar.webp'),
             ),
           ),
-          SizedBox(width: 10),
-          Column(
+          const SizedBox(width: 10),
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -87,8 +87,8 @@ class _ChatScreenState extends State<ChatScreen> {
               )
             ],
           ),
-          Spacer(),
-          Text('12:30')
+          const Spacer(),
+          const Text('12:30')
         ],
       ),
     );
