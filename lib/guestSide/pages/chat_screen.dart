@@ -82,7 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
               Text(
-                'hii there how are you',
+                'hii, there how are you',
                 style: TextStyle(fontSize: 12, color: Colors.grey),
               )
             ],
