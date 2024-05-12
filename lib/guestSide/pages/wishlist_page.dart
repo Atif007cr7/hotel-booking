@@ -40,14 +40,14 @@ class _WishListPageState extends State<WishListPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'WishLists',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
@@ -78,7 +78,7 @@ class _WishListPageState extends State<WishListPage> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Container(
-                margin: EdgeInsets.all(2),
+                margin: const EdgeInsets.all(2),
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
@@ -99,12 +99,12 @@ class _WishListPageState extends State<WishListPage> {
                 top: 10,
                 left: 10,
                 child: Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(5),
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.close,
                     size: 16,
                   ),
@@ -113,13 +113,13 @@ class _WishListPageState extends State<WishListPage> {
             ),
           ],
         ),
-        SizedBox(height: 10),
-        Text(
+        const SizedBox(height: 10),
+        const Text(
           'Amazing views 2024', // Assuming same title for all items, you can replace with dynamic data
           textAlign: TextAlign.start,
           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
         ),
-        Text(
+        const Text(
           '1 saved', // Assuming same saved count for all items, you can replace with dynamic data
           textAlign: TextAlign.start,
           style: TextStyle(
