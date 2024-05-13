@@ -114,6 +114,22 @@ class _GuestAppLayoutState extends State<GuestAppLayout> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: SizedBox(
+        width: 100,
+        height: 40,
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          onPressed: () {},
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Icon(Icons.map), Text('Map')],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
