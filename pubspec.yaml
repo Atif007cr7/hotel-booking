@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/guestBottom/
     - assets/guestside/homepage/
+    - assets/guestside/homepage/propertyinfo/
     - assets/guestside/hotelimage/
     - assets/guestside/homepage/tabicons/
     - assets/wishlist/images/

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import 'package:hotel_booking/guestSide/pages/homeScreen/add_to_wishlist.dart';
 import 'package:hotel_booking/guestSide/pages/propety_info.dart';
 import 'package:hotel_booking/model/guestModel/home_tab1_mode.dart';
 
@@ -103,13 +104,23 @@ class _HomeTab1State extends State<HomeTab1> {
                               }).toList(),
                             ),
                           ),
-                          const Positioned(
+                          Positioned(
                               top: 10,
                               left: 10,
-                              child: Icon(
-                                Icons.favorite,
-                                size: 30,
-                                color: Colors.white,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (context) {
+                                      return addToWishListBottomSheet();
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.favorite,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
                               ))
                         ],
                       ),

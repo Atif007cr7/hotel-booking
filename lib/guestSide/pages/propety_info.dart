@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:hotel_booking/model/guestModel/home_tab1_mode.dart';
 
@@ -220,11 +222,207 @@ class _PropertyInfoState extends State<PropertyInfo> {
                     thickness: .2,
                     height: 30,
                   ),
+                  Container(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Column(
+                      children: [
+                        const Text(
+                            'Build in the 19th century, with a 360 degree view over the sea and surrounding on the top floor. \n it features a Bedroom with a king size bed , a very weill-decorated living room with kitvhenette , and a Wc.\n Free Wifi, air Conditioning , Led tv and DvD player ...'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            _seeMoreAboutThisPlace(context),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 12,
+                              color: Colors.black,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    thickness: .2,
+                    height: 30,
+                  ),
+                  Text(
+                    'Where you\'ll sleep',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/guestside/homepage/propertyinfo/bedtosleep.jpg',
+                                height: 100,
+                              ),
+                            ),
+                            Text(
+                              'Bedroom',
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
+                            Text(
+                              '1 double bed',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w300),
+                            )
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/guestside/homepage/propertyinfo/childbed.jpg',
+                                height: 100,
+                              ),
+                            ),
+                            Text(
+                              'Child Room',
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
+                            Text(
+                              '1 child bed',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w300),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    thickness: .2,
+                    height: 30,
+                  ),
+                  Text(
+                    'What this place offers',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  _aminitiesOnMainPage(
+                      image:
+                          'assets/guestside/homepage/propertyinfo/hottub.png',
+                      name: 'Hot tub'),
+                  _aminitiesOnMainPage(
+                      image: 'assets/guestside/homepage/propertyinfo/tv.png',
+                      name: 'Smart t.v'),
+                  _aminitiesOnMainPage(
+                      image: 'assets/guestside/homepage/propertyinfo/wifi.png',
+                      name: 'Wifi'),
+                  _aminitiesOnMainPage(
+                      image: 'assets/guestside/homepage/propertyinfo/iron.png',
+                      name: 'Iron'),
+                  _aminitiesOnMainPage(
+                      image: 'assets/guestside/homepage/propertyinfo/towel.png',
+                      name: 'Towel'),
+                  _aminitiesOnMainPage(
+                      image:
+                          'assets/guestside/homepage/propertyinfo/wardrob.png',
+                      name: 'Clothing space'),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Row _aminitiesOnMainPage({
+    String? image,
+    String? name,
+  }) {
+    return Row(
+      children: [
+        Image.asset(
+          image ?? '',
+          height: 30,
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Text(name ?? '')
+      ],
+    );
+  }
+
+  GestureDetector _seeMoreAboutThisPlace(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          useSafeArea: true,
+          context: context,
+          builder: (context) {
+            return Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.close),
+                  Text(
+                    'About this space',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                      'Build in the 19th century, with a 360 degree view over the sea and surrounding on the top floor. \n it features a Bedroom with a king size bed , a very weill-decorated living room with kitvhenette , and a Wc.\n Free Wifi, air Conditioning , Led tv and DvD player Private parking inside the premises , providing extra security . \n Perfect for a unforgettable honeymoon experiences '),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'The space',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                      'it has a 4000m garden with sub-tropical fruits tress, garden trees , and a flower. \n in additional to the mill ideal for 2 people , it has two more accomocation units : the modes cimas House ideal up to 3 people and the Molerios House that hold up to 4 people .'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Guest access',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  Text('Guest have access to all property spaces '),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Registration numbers',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  Text('Exempt')
+                ],
+              ),
+            );
+          },
+        );
+      },
+      child: const Text(
+        'Show more',
+        style: TextStyle(
+            decoration: TextDecoration.underline, fontWeight: FontWeight.w500),
       ),
     );
   }
